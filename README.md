@@ -28,3 +28,12 @@ Generate a Python package project:
 ```bash
 cookiecutter https://github.com/harshanarayana/cookiecutter-sanic.git
 ```
+
+# To Do
+
+- [ ] Authentication Support (JWT, Basic Auth)
+- [ ] Rate Limiter
+- [ ] Caching Support via Redis/memcached
+- [ ] ORM/Database Integration
+- [ ] Automated Release Management
+- [ ] Automated Change Log Generator
