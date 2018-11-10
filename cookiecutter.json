@@ -2,5 +2,9 @@
     "repo_name": "sanic-skeleton",
     "app_name": "sanic_skeleton",
     "run": "run",
-    "enable_swagger": "y"
+    "enable_swagger": "y",
+    "sanic_env_prefix": "SANIC_",
+    "sanic_port": 8000,
+    "sanic_host": "0.0.0.0",
+    "maintainer": "Me"
 }

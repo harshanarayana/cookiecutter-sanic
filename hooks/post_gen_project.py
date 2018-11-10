@@ -22,6 +22,9 @@ if enable_swagger:
     os.rename(
         "{{cookiecutter.app_name}}/blueprint/health/swagger-__init__.py",
         "{{cookiecutter.app_name}}/blueprint/health/__init__.py")
+else:
+    os.remove("{{cookiecutter.app_name}}/{{cookiecutter.app_name}}-swagger.py")
+    os.remove("{{cookiecutter.app_name}}/blueprint/health/swagger-__init__.py")
 
 dependencies_to_remove = []
 

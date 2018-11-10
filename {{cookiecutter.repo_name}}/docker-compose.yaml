@@ -1,0 +1,9 @@
+version: '3'
+services:
+    {{cookiecutter.app_name}}:
+        restart: always
+        build:
+            context: .
+        ports:
+            - "{{cookiecutter.sanic_port}}:{{cookiecutter.sanic_port}}"
+        env_file: .env
