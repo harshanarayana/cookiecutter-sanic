@@ -1,0 +1,6 @@
+{
+    "repo_name": "sanic-skeleton",
+    "app_name": "sanic_skeleton",
+    "run": "run",
+    "enable_swagger": "y"
+}
