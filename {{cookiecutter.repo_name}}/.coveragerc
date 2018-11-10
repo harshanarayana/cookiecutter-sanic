@@ -1,0 +1,7 @@
+[run]
+branch = True
+source = {{cookiecutter.app_name}}
+omit = site-packages
+
+[html]
+directory = coverage
