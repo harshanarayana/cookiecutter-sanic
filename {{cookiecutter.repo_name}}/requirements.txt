@@ -1,3 +1,5 @@
 sanic
+{% if cookiecutter.enable_swagger == 'y' -%}
 sanic-openapi
+{%- endif %}
 json-logging-py

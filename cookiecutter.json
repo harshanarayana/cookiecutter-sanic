@@ -8,5 +8,8 @@
     "sanic_host": "0.0.0.0",
     "maintainer": "Me",
     "tox_env": ["py35", "py36", "py37"],
-    "enable_codecov": ["true", "false"]
+    "enable_codecov": ["true", "false"],
+    "run_mode": ["gunicorn", "sanic_dev_mode", "sanic_workers", "async_mode"],
+    "workers": 4,
+    "enable_auto_reload": [true, false]
 }

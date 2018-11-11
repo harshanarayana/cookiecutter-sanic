@@ -19,6 +19,11 @@
 * Unit testing via `pytest` and `pytest-sanic`
 * CI support for `travis`
 * Github Issue and PR templates
+* Mupltiple Runner options
+    * Gunicorn
+    * Sanic Dev mode with Auto Reload
+    * With Sanic Workers and no Dev mode
+    * With Async Support
 
 # Quickstart
 Install the latest Cookiecutter if you haven't installed it yet (this requires Cookiecutter 1.6.0 or higher):

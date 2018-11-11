@@ -2,6 +2,7 @@ from pexpect import spawn
 from os import getcwd, path, makedirs
 import logging
 import sys
+from collections import OrderedDict
 
 logger = logging.getLogger("test")
 logger.setLevel(logging.DEBUG)
@@ -14,7 +15,7 @@ cookiecutter_template_path = path.join(
 output_path = path.join(
     path.dirname(cookiecutter_template_path), "output")
 
-expect_to_arg_map = {
+expect_to_arg_map = OrderedDict({
     "repo_name [sanic-skeleton]: ": "sanic-test",
     "app_name [sanic_skeleton]": "sanic_test",
     "run [run]": "run",
@@ -25,10 +26,15 @@ expect_to_arg_map = {
     "maintainer": "some random test maintainer",
     "Select tox_env": "2",
     "Select enable_codecov": "2",
-}
+    "Select run_mode:": "1",
+    "workers": "4",
+    "Select enable_auto_reload": "1"
+})
 
 # Setup Directory path for output
-makedirs(output_path)
+if not path.isdir(output_path):
+    makedirs(output_path)
+
 
 cookiecutter_command = "cookiecutter {} -o {}" \
     .format(cookiecutter_template_path, output_path)
@@ -47,6 +53,7 @@ for expected_value, input_answer in expect_to_arg_map.items():
     child.expect_exact([expected_value])
     child.sendline(input_answer)
 
+child.read()
 child.wait()
 
 if child.exitstatus:
