@@ -9,9 +9,10 @@ ch = logging.StreamHandler()
 ch.setLevel(logging.DEBUG)
 logger.addHandler(ch)
 
-
-cookiecutter_template_path = path.join(path.dirname(getcwd()), "cookiecutter-sanic")
-output_path = path.join(path.dirname(cookiecutter_template_path), "output")
+cookiecutter_template_path = path.join(
+    path.dirname(getcwd()), "cookiecutter-sanic")
+output_path = path.join(
+    path.dirname(cookiecutter_template_path), "output")
 
 expect_to_arg_map = {
     "repo_name [sanic-skeleton]: ": "sanic-test",
@@ -26,12 +27,14 @@ expect_to_arg_map = {
     "Select enable_codecov": "2",
 }
 
-
 # Setup Directory path for output
 makedirs(output_path)
 
-cookiecutter_command = "cookiecutter {} -o {}".format(cookiecutter_template_path, output_path)
-logger.debug("Command being executed to Test Template Rendering: {}".format(cookiecutter_command))
+cookiecutter_command = "cookiecutter {} -o {}" \
+    .format(cookiecutter_template_path, output_path)
+
+logger.debug("Command being executed to Test Template Rendering: {}"
+             .format(cookiecutter_command))
 
 child = spawn(cookiecutter_command)
 child.logfile = sys.stdout.buffer
