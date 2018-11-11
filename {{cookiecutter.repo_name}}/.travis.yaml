@@ -1,0 +1,32 @@
+sudo: false
+language: python
+cache:
+  directories:
+    - $HOME/.cache/pip
+
+matrix:
+  include:
+    - env: TOX_ENV={{cookiecutter.tox_env}}{{"\n"}}
+{%- if cookiecutter.tox_env == "py35" -%}
+{{'' | indent(6, True)}}python: 3.5
+{%- elif cookiecutter.tox_env == "py36" -%}
+{{'' | indent(6, True)}}python: 3.6
+{%- elif cookiecutter.tox_env == "py37" -%}
+{{'' | indent(6, True)}}python: 3.7
+{%- else -%}
+{{'' | indent(6, True)}}python: 3.6
+{% endif %}
+
+install:
+  - pip install -U tox
+{%- if cookiecutter.enable_codecov == 'true' -%}
+  - pip install codecov
+{% endif %}
+
+script: travis_retry tox -e $TOX_ENV
+{{"\n"}}
+{%- if cookiecutter.enable_codecov == 'true' -%}
+after_success:
+  - codecov
+{% endif %}
+
