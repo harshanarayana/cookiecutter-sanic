@@ -1,6 +1,6 @@
 # Cookiecutter Sanic Package
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fharshanarayana%2Fcookiecutter-sanic.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fharshanarayana%2Fcookiecutter-sanic?ref=badge_shield)
-
+[![Build Status](https://semaphoreci.com/api/v1/harshanarayana/cookiecutter-sanic/branches/master/badge.svg)](https://semaphoreci.com/harshanarayana/cookiecutter-sanic)
 
 [Cookiecutter](https://github.com/audreyr/cookiecutter) template for Sanic Applications
 
@@ -20,7 +20,7 @@
 * Github Issue and PR templates
 
 # Quickstart
-Install the latest Cookiecutter if you haven't installed it yet (this requires Cookiecutter 1.4.0 or higher):
+Install the latest Cookiecutter if you haven't installed it yet (this requires Cookiecutter 1.6.0 or higher):
 
 ```bash
 pip install -U cookiecutter

@@ -1,1 +1,7 @@
 pexpect
+pytest
+tox
+pytest-cookies
+sphinx_rtd_theme
+recommonmark
+sphinx
