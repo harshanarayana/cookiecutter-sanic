@@ -20,7 +20,7 @@
 * Github Issue and PR templates
 
 # Quickstart
-Install the latest Cookiecutter if you haven't installed it yet (this requires Cookiecutter 1.4.0 or higher):
+Install the latest Cookiecutter if you haven't installed it yet (this requires Cookiecutter 1.6.0 or higher):
 
 ```bash
 pip install -U cookiecutter
