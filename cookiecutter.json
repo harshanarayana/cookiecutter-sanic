@@ -7,5 +7,6 @@
     "sanic_port": 8000,
     "sanic_host": "0.0.0.0",
     "maintainer": "Me",
-    "tox_env": ["py35", "py36", "py37"]
+    "tox_env": ["py35", "py36", "py37"],
+    "enable_codecov": ["true", "false"]
 }

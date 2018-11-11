@@ -16,7 +16,8 @@
 * Default `health` and `status` API blueprints
 * `tox` Environment Setup with `py35`, `py36` `py37`
 * Unit testing via `pytest` and `pytest-sanic`
-
+* CI support for `travis`
+* Github Issue and PR templates
 
 # Quickstart
 Install the latest Cookiecutter if you haven't installed it yet (this requires Cookiecutter 1.4.0 or higher):
