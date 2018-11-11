@@ -6,26 +6,26 @@ cache:
 
 matrix:
   include:
-    - env: {{cookiecutter.tox_env}}
+    - env: TOX_ENV={{cookiecutter.tox_env}}{{"\n"}}
 {%- if cookiecutter.tox_env == "py35" -%}
-      python: 3.5
+{{'' | indent(6, True)}}python: 3.5
 {%- elif cookiecutter.tox_env == "py36" -%}
-      python: 3.6
+{{'' | indent(6, True)}}python: 3.6
 {%- elif cookiecutter.tox_env == "py37" -%}
-      python: 3.7
+{{'' | indent(6, True)}}python: 3.7
 {%- else -%}
-      python: 3.6
+{{'' | indent(6, True)}}python: 3.6
 {% endif %}
 
 install:
   - pip install -U tox
-{%- cookiecutter.enable_codecov == 'true' -%}
+{%- if cookiecutter.enable_codecov == 'true' -%}
   - pip install codecov
 {% endif %}
 
 script: travis_retry tox -e $TOX_ENV
-
-{%- cookiecutter.enable_codecov == 'true' -%}
+{{"\n"}}
+{%- if cookiecutter.enable_codecov == 'true' -%}
 after_success:
   - codecov
 {% endif %}
