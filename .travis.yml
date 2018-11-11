@@ -15,12 +15,13 @@ matrix:
       python: 3.7
       dist: xenial
       sudo: true
-    - env: TOX_ENV=docks
+    - env: TOX_ENV=docs
       python: 3.6
 install:
   - pip install -U tox
   - pip install codecov
   - pip install pexpect
+  - pip install -r requirements-dev.txt
 script: travis_retry tox -e $TOX_ENV
 after_success:
   - python test.py
