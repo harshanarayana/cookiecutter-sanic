@@ -1,5 +1,7 @@
 sudo: false
 language: python
+services:
+  - docker
 cache:
   directories:
     - $HOME/.cache/pip

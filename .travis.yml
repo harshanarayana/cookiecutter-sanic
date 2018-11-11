@@ -1,0 +1,28 @@
+sudo: true
+language: python
+services:
+  - docker
+cache:
+  directories:
+    - $HOME/.cache/pip
+matrix:
+  include:
+    - env: TOX_ENV=py35
+      python: 3.5
+    - env: TOX_ENV=py36
+      python: 3.6
+    - env: TOX_ENV=py37
+      python: 3.7
+      dist: xenial
+      sudo: true
+    - env: TOX_ENV=docs
+      python: 3.6
+install:
+  - pip install -U tox
+  - pip install codecov
+  - pip install pexpect
+  - pip install -r requirements-dev.txt
+script: travis_retry tox -e $TOX_ENV
+after_success:
+  - python test.py
+  - docker-compose --file ../output/sanic-test/docker-compose.yaml up -d
