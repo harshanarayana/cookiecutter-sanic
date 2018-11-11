@@ -1,4 +1,12 @@
-FROM python:3.6-onbuild
+{%- if cookiecutter.tox_env == "py35" -%}
+FROM python:3.5-slim
+{%- elif cookiecutter.tox_env == "py36" -%}
+FROM python:3.6-slim
+{%- elif cookiecutter.tox_env == "py37" -%}
+FROM python:3.7-slim
+{%- else -%}
+FROM python:3.6-slim
+{% endif %}
 MAINTAINER {{cookiecutter.maintainer}}
 
 

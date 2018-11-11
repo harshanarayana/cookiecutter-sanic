@@ -6,5 +6,6 @@
     "sanic_env_prefix": "SANIC_",
     "sanic_port": 8000,
     "sanic_host": "0.0.0.0",
-    "maintainer": "Me"
+    "maintainer": "Me",
+    "tox_env": ["py35", "py36", "py37"]
 }
