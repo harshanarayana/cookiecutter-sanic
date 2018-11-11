@@ -36,4 +36,3 @@ ENTRYPOINT ["gunicorn", "{{cookiecutter.run}}:app", "--config", "/sanic/config/g
 {% else %}
 ENTRYPOINT ["python", "{{cookiecutter.run}}.py"]
 {% endif %}
-v
