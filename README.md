@@ -1,4 +1,6 @@
 # Cookiecutter Sanic Package
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fharshanarayana%2Fcookiecutter-sanic.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fharshanarayana%2Fcookiecutter-sanic?ref=badge_shield)
+
 
 [Cookiecutter](https://github.com/audreyr/cookiecutter) template for Sanic Applications
 
@@ -37,3 +39,7 @@ cookiecutter https://github.com/harshanarayana/cookiecutter-sanic.git
 - [ ] ORM/Database Integration
 - [ ] Automated Release Management
 - [ ] Automated Change Log Generator
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fharshanarayana%2Fcookiecutter-sanic.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fharshanarayana%2Fcookiecutter-sanic?ref=badge_large)
