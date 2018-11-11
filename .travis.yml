@@ -20,7 +20,8 @@ matrix:
 install:
   - pip install -U tox
   - pip install codecov
+  - pip install pexpect
 script: travis_retry tox -e $TOX_ENV
 after_success:
   - python test.py
-  - docker-compose --file ../output/sanic-test/docker-compose.yaml up -d 
+  - docker-compose --file ../output/sanic-test/docker-compose.yaml up -d
