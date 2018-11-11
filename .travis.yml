@@ -23,4 +23,4 @@ install:
 script: travis_retry tox -e $TOX_ENV
 after_success:
   - python test.py
-  - docker-compose --file ../output/sanic-test/docker-compose.yaml
+  - docker-compose --file ../output/sanic-test/docker-compose.yaml up -d 
