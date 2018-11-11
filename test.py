@@ -25,6 +25,8 @@ expect_to_arg_map = {
     "maintainer": "some random test maintainer",
     "Select tox_env": "2",
     "Select enable_codecov": "2",
+    "Select run_mode:": "1",
+    "workers": "4"
 }
 
 # Setup Directory path for output

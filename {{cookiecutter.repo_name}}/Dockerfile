@@ -31,4 +31,9 @@ ENV {{cookiecutter.sanic_env_prefix}}SERVER_HOST {{cookiecutter.sanic_host}}
 
 EXPOSE {{cookiecutter.sanic_port}}
 
+{% if cookiecutter.run_mode == 'gunicorn' %}
 ENTRYPOINT ["gunicorn", "{{cookiecutter.run}}:app", "--config", "/sanic/config/gunicorn.conf", "--log-config", "/sanic/config/logging.conf", "-b", "{{cookiecutter.sanic_host}}:{{cookiecutter.sanic_port}}", "--worker-class",  "sanic.worker.GunicornWorker"]
+{% else %}
+ENTRYPOINT ["python", "{{cookiecutter.run}}.py"]
+{% endif %}
+v
