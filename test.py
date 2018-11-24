@@ -2,6 +2,7 @@ from pexpect import spawn
 from os import getcwd, path, makedirs
 import logging
 import sys
+from collections import OrderedDict
 
 logger = logging.getLogger("test")
 logger.setLevel(logging.DEBUG)
@@ -14,7 +15,7 @@ cookiecutter_template_path = path.join(
 output_path = path.join(
     path.dirname(cookiecutter_template_path), "output")
 
-expect_to_arg_map = {
+expect_to_arg_map = OrderedDict({
     "repo_name [sanic-skeleton]: ": "sanic-test",
     "app_name [sanic_skeleton]": "sanic_test",
     "run [run]": "run",
@@ -28,7 +29,7 @@ expect_to_arg_map = {
     "Select run_mode:": "1",
     "workers": "4",
     "Select enable_auto_reload": "1"
-}
+})
 
 # Setup Directory path for output
 if not path.isdir(output_path):
