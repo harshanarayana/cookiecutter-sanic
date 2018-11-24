@@ -6,8 +6,7 @@ app = Sanic(__name__)
 
 app.blueprint(health)
 
+
 @app.route("/")
 async def default(request):
-    return json({
-        'message': 'hello Sanic!'
-    })
+    return json({"message": "hello Sanic!"})

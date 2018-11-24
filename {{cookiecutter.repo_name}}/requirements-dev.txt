@@ -1,6 +1,9 @@
 sanic
+{% if cookiecutter.enable_swagger == 'y' -%}
 sanic-openapi
+{%- endif %}
 pytest
+pytest-sanic
 sphinx
 tox
 json-logging-py
