@@ -6,3 +6,4 @@ sphinx_rtd_theme
 recommonmark
 sphinx
 cookiecutter
+pytest-parallel

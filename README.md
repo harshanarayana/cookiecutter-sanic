@@ -24,6 +24,12 @@
     * Sanic Dev mode with Auto Reload
     * With Sanic Workers and no Dev mode
     * With Async Support
+* Documentation via `sphinx`
+* Automated Release version management using `bumpversion`
+* Automated change log management using `gitchangelog`
+* Python based Build Support and Make file based build support
+* Editor Config support
+
 
 # Quickstart
 Install the latest Cookiecutter if you haven't installed it yet (this requires Cookiecutter 1.6.0 or higher):
@@ -44,8 +50,18 @@ cookiecutter https://github.com/harshanarayana/cookiecutter-sanic.git
 - [ ] Rate Limiter
 - [ ] Caching Support via Redis/memcached
 - [ ] ORM/Database Integration
-- [ ] Automated Release Management
-- [ ] Automated Change Log Generator
+- [x] Automated Release Management
+- [x] Automated Change Log Generator
+
+# Credits
+
+This template enables automated release version management and changelog generated via the following projects. 
+
+## Versioning
+[`bumpversion` by `peritus`](https://github.com/peritus/bumpversion)
+
+## Change Log Management
+[`gitchangelog` by `vaab`](https://github.com/vaab/gitchangelog) 
 
 
 ## License
