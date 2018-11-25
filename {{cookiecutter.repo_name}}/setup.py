@@ -48,5 +48,5 @@ setup(
     tests_require=test_requirements,
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}',
     version='{{ cookiecutter.version }}',
-    zip_safe=False
+    zip_safe=True
 )

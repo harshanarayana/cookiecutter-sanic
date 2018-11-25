@@ -69,13 +69,14 @@ def test_bake_with_defaults(cookies, logger: Logger):
         assert 'setup.py' in found_toplevel_files
         assert 'tox.ini' in found_toplevel_files
         assert 'tests' in found_toplevel_files
+        assert 'docs' in found_toplevel_files
 
 
 def test_bake_and_run_tests(cookies, logger: Logger):
-    logger.debug("Running Bake with Default Values and Unit Test on rendered content")
+    logger.debug("Running Bake with Default Values and Unit Test on rendered content\n")
     with bake_in_temp_dir(cookies) as result:
         assert result.project.isdir()
-        logger.debug("Path Used for Running Unit Test on rendered content {}".format(str(result.project)))
+        logger.debug("Path Used for Running Unit Test on rendered content {}\n".format(str(result.project)))
         assert run_inside_dir('python setup.py test', str(result.project)) == 0
 
 
@@ -83,6 +84,7 @@ def test_bake_withspecialchars_and_run_tests(cookies, logger: Logger):
     logger.debug("Testing Maintainer with doubele quote Characters")
     with bake_in_temp_dir(cookies, extra_context={'maintainer': 'name "quote" name'}) as result:
         assert result.project.isdir()
+        logger.debug("Path Used for Running Unit Test on rendered content {}\n".format(str(result.project)))
         assert run_inside_dir('python setup.py test', str(result.project)) == 0
 
 
@@ -90,4 +92,5 @@ def test_bake_with_apostrophe_and_run_tests(cookies, logger: Logger):
     logger.debug("Testing Maintainer with apostrophes Characters")
     with bake_in_temp_dir(cookies, extra_context={'full_name': "O'connor"}) as result:
         assert result.project.isdir()
+        logger.debug("Path Used for Running Unit Test on rendered content {}\n".format(str(result.project)))
         assert run_inside_dir('python setup.py test', str(result.project)) == 0
