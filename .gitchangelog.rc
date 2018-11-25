@@ -11,18 +11,16 @@ ignore_regexps = [
 
 section_regexps = [
     ('New', [
-        r'^[nNeEwW]{2}:\s*((dev|use?r|pkg|test|doc)\s*:\s*)?(.*)([^\n]*)$',
+        r'^[nNeEwW]{2,}:\s*((dev|use?r|pkg|test|doc)\s*:\s*)?(.*)([^\n]*)$',
      ]),
     ('Changes', [
-        r'^[cChHgG]{2}\s*:\s*((dev|use?r|pkg|test|doc)\s*:\s*)?(.*)([^\n]*)$',
+        r'^[cChHgG]{2,}\s*:\s*((dev|use?r|pkg|test|doc)\s*:\s*)?(.*)([^\n]*)$',
      ]),
     ('Fix', [
-        r'^[fFIiXx]{2}\s*:\s*((dev|use?r|pkg|test|doc)\s*:\s*)?(.*)([^\n]*)$',
+        r'^[fFIiXx]{2,}\s*:\s*((dev|use?r|pkg|test|doc)\s*:\s*)?(.*)([^\n]*)$',
      ]),
-
     ('Other', None ## Match all lines
      ),
-
 ]
 
 #body_process = Wrap(regexp=r'\n(?=\w+\s*:)') | Indent(chars="  ")
