@@ -4,7 +4,7 @@ from distutils.core import setup
 setup(
     name='cookiecutter-sanic',
     packages=[],
-    version='0.1.0',
+    version='0.1.0-beta',
     description='Cookiecutter template for a Sanic Application',
     author='Harsha Narayana',
     license='MIT',
