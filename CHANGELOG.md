@@ -1,9 +1,11 @@
 # Changelog
 
 
-## (unreleased)
+## 0.1.0-beta
 
-### Other
+### New
+
+* Bump version: 0.1.0-alpha → 0.1.0-beta. [Harsha Narayana]
 
 * Feat: add release version and change log support. [Harsha Narayana]
 
