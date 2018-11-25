@@ -1,7 +1,6 @@
 # Changelog
 
-
-## 0.1.0-beta
+## v0.1.0-beta (2018-11-25)
 
 ### New
 
