@@ -3,6 +3,7 @@ import shlex
 import os
 import subprocess
 from cookiecutter.utils import rmtree
+from logging import Logger
 
 
 @contextmanager
@@ -50,14 +51,15 @@ def check_output_inside_dir(command, dirpath):
 
 
 def project_info(result):
-    """Get toplevel dir, project_slug, and project dir from baked cookies"""
+    """Get toplevel dir, app_name, and project dir from baked cookies"""
     project_path = str(result.project)
-    project_slug = os.path.split(project_path)[-1]
-    project_dir = os.path.join(project_path, project_slug)
-    return project_path, project_slug, project_dir
+    app_name = os.path.split(project_path)[-1]
+    project_dir = os.path.join(project_path, app_name)
+    return project_path, app_name, project_dir
 
 
-def test_bake_with_defaults(cookies):
+def test_bake_with_defaults(cookies, logger: Logger):
+    logger.debug("Baking with default values")
     with bake_in_temp_dir(cookies) as result:
         assert result.project.isdir()
         assert result.exit_code == 0
@@ -67,3 +69,25 @@ def test_bake_with_defaults(cookies):
         assert 'setup.py' in found_toplevel_files
         assert 'tox.ini' in found_toplevel_files
         assert 'tests' in found_toplevel_files
+
+
+def test_bake_and_run_tests(cookies, logger: Logger):
+    logger.debug("Running Bake with Default Values and Unit Test on rendered content")
+    with bake_in_temp_dir(cookies) as result:
+        assert result.project.isdir()
+        logger.debug("Path Used for Running Unit Test on rendered content {}".format(str(result.project)))
+        assert run_inside_dir('python setup.py test', str(result.project)) == 0
+
+
+def test_bake_withspecialchars_and_run_tests(cookies, logger: Logger):
+    logger.debug("Testing Maintainer with doubele quote Characters")
+    with bake_in_temp_dir(cookies, extra_context={'maintainer': 'name "quote" name'}) as result:
+        assert result.project.isdir()
+        assert run_inside_dir('python setup.py test', str(result.project)) == 0
+
+
+def test_bake_with_apostrophe_and_run_tests(cookies, logger: Logger):
+    logger.debug("Testing Maintainer with apostrophes Characters")
+    with bake_in_temp_dir(cookies, extra_context={'full_name': "O'connor"}) as result:
+        assert result.project.isdir()
+        assert run_inside_dir('python setup.py test', str(result.project)) == 0

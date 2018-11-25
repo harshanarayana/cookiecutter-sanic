@@ -7,3 +7,8 @@ pytest-sanic
 sphinx
 tox
 json-logging-py
+bumpversion
+twine
+pytest-cov
+pytest-runner
+gitchangelog
