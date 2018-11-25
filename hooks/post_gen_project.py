@@ -1,5 +1,4 @@
 import os
-import shutil
 
 enable_swagger = '{{cookiecutter.enable_swagger}}' == 'y'
 
