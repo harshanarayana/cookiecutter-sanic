@@ -77,7 +77,8 @@ def test_bake_and_run_tests(cookies, logger: Logger):
     with bake_in_temp_dir(cookies) as result:
         assert result.project.isdir()
         logger.debug("Path Used for Running Unit Test on rendered content {}\n".format(str(result.project)))
-        assert run_inside_dir('python setup.py test', str(result.project)) == 0
+        if not os.getenv("SKIP_TESTS"):
+            assert run_inside_dir('python setup.py test', str(result.project)) == 0
 
 
 def test_bake_withspecialchars_and_run_tests(cookies, logger: Logger):
@@ -85,7 +86,8 @@ def test_bake_withspecialchars_and_run_tests(cookies, logger: Logger):
     with bake_in_temp_dir(cookies, extra_context={'maintainer': 'name "quote" name'}) as result:
         assert result.project.isdir()
         logger.debug("Path Used for Running Unit Test on rendered content {}\n".format(str(result.project)))
-        assert run_inside_dir('python setup.py test', str(result.project)) == 0
+        if not os.getenv("SKIP_TESTS"):
+            assert run_inside_dir('python setup.py test', str(result.project)) == 0
 
 
 def test_bake_with_apostrophe_and_run_tests(cookies, logger: Logger):
@@ -93,4 +95,5 @@ def test_bake_with_apostrophe_and_run_tests(cookies, logger: Logger):
     with bake_in_temp_dir(cookies, extra_context={'full_name': "O'connor"}) as result:
         assert result.project.isdir()
         logger.debug("Path Used for Running Unit Test on rendered content {}\n".format(str(result.project)))
-        assert run_inside_dir('python setup.py test', str(result.project)) == 0
+        if not os.getenv("SKIP_TESTS"):
+            assert run_inside_dir('python setup.py test', str(result.project)) == 0
