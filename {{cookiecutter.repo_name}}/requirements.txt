@@ -5,7 +5,7 @@ sanic-openapi
 json-logging-py
 {% if cookiecutter.enable_orm == 'true' -%}
 gino
-{%- endif -%}
+{%- endif %}
 {% if cookiecutter.enable_rate_limiter == 'true' -%}
 sanic_limiter
 {%- endif -%}
