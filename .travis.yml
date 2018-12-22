@@ -21,8 +21,7 @@ install:
   - pip install -U tox
   - pip install codecov
   - pip install pexpect
-  - pip install -r
-  - requirements-dev.txt
+  - pip install -r requirements-dev.txt
 script: travis_retry tox -e $TOX_ENV
 after_success:
   - python test.py
