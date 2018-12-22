@@ -29,6 +29,8 @@ expect_to_arg_map = OrderedDict({
     "version": "0.1.0",
     "Select tox_env": "2",
     "Select enable_codecov": "2",
+    "Select enable_orm": "1",
+    "Select enable_rate_limiter": "1",
     "Select run_mode:": "1",
     "workers": "4",
     "Select enable_auto_reload": "1"

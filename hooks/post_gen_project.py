@@ -1,4 +1,7 @@
 import os
+from shutil import which
+from subprocess import Popen, PIPE
+from sys import version_info
 
 enable_swagger = '{{cookiecutter.enable_swagger}}' == 'y'
 
@@ -32,3 +35,12 @@ if not enable_swagger:
 
 for req_type in ["", "-dev", "-doc"]:
     cleanup_requirements_file("requirements{}.txt".format(req_type), dependencies_to_remove)
+
+if which("black"):
+    process = Popen(["black", "."],
+                    stderr=PIPE, stdout=PIPE)
+    _, _ = process.communicate()
+
+if which("isort"):
+    process = Popen(["isort", "-rc", "."], stdout=PIPE, stderr=PIPE)
+    _, _ = process.communicate()

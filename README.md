@@ -47,9 +47,9 @@ cookiecutter https://github.com/harshanarayana/cookiecutter-sanic.git
 # To Do
 
 - [ ] Authentication Support (JWT, Basic Auth)
-- [ ] Rate Limiter
+- [x] Rate Limiter
 - [ ] Caching Support via Redis/memcached
-- [ ] ORM/Database Integration
+- [x] ORM/Database Integration
 - [x] Automated Release Management
 - [x] Automated Change Log Generator
 
