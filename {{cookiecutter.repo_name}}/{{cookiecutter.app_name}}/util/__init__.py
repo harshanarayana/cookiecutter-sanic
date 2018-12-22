@@ -28,8 +28,8 @@ def setup_rate_limiter(app: Sanic):
     limiter = Limiter(
         app,
         global_limits=[
-            "10/hour",
-            "1/second"
+            "1000/hour",
+            "100/second"
         ],
         key_func=get_remote_address,
         strategy='moving-window',
