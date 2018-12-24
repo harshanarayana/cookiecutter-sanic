@@ -13,7 +13,7 @@
     "tox_env": ["py35", "py36", "py37"],
     "enable_codecov": ["true", "false"],
     "enable_orm": ["true", "false"],
-    "postgres_volume_location": "./pg-data",
+    "postgres_volume_location": "pg-data",
     "enable_rate_limiter": ["true", "false"],
     "run_mode": ["gunicorn", "sanic_dev_mode", "sanic_workers", "async_mode"],
     "workers": 4,
