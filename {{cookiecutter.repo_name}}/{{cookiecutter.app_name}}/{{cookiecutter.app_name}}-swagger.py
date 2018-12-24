@@ -1,6 +1,6 @@
 from sanic import Sanic
 from sanic.response import json
-from sanic_openapi import swagger_blueprint, openapi_blueprint, doc
+from sanic_openapi import swagger_blueprint, doc
 from {{cookiecutter.app_name}}.blueprint.health import health
 {% if cookiecutter.enable_orm == 'true' -%}
 from {{cookiecutter.app_name}}.model import DATABASE
@@ -19,7 +19,6 @@ limiter = setup_rate_limiter(app)
 {%- endif %}
 
 
-app.blueprint(openapi_blueprint)
 app.blueprint(swagger_blueprint)
 
 app.blueprint(health)

@@ -3,6 +3,12 @@ from {{cookiecutter.app_name}}.util import sanic_config_manager
 {% if cookiecutter.run_mode == 'async_mode' %}
 from asyncio import get_event_loop, ensure_future
 {% endif %}
+{% if cookiecutter.enable_opentracing == 'True' %}
+from {{cookiecutter.app_name}}.plugin.opentracing import setup_opentracing
+
+setup_opentracing(app=app)
+
+{% endif %}
 
 sanic_config_manager(app, prefix="{{cookiecutter.sanic_env_prefix}}")
 

@@ -1,4 +1,4 @@
-from os import environ
+from os import environ, path
 from sanic import Sanic
 {% if cookiecutter.enable_orm == 'true' -%}
 from gino.ext.sanic import Gino
@@ -7,11 +7,21 @@ from gino.ext.sanic import Gino
 from sanic_limiter import Limiter, get_remote_address
 {%- endif %}
 
-def sanic_config_manager(app: Sanic, prefix: str = "SANIC_"):
+def sanic_config_manager(app: Sanic, prefix: str = "SANIC_", env_file="../../.env"):
     for variable, value in environ.items():
         if variable.startswith(prefix):
             _, key = variable.split(prefix, 1)
             app.config[key] = value
+    if env_file and path.isfile(env_file):
+        try:
+            with open(env_file) as fh:
+                data = fh.read()
+            for line in data.split("\n"):
+                var, value = line.split("=")
+                var = var.replace(prefix, "")
+                app.config[var] = value
+        except:
+            pass
 
 
 {% if cookiecutter.enable_orm == 'true' -%}
