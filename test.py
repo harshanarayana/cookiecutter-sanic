@@ -30,11 +30,12 @@ expect_to_arg_map = OrderedDict({
     "Select tox_env": "2",
     "Select enable_codecov": "2",
     "Select enable_orm": "1",
-    "postgres_volume_location": "./pg-data",
+    "postgres_volume_location": "pg-data",
     "Select enable_rate_limiter": "1",
     "Select run_mode:": "1",
     "workers": "4",
-    "Select enable_auto_reload": "1"
+    "Select enable_auto_reload": "1",
+    "Select enable_opentracing": "2",
 })
 
 # Setup Directory path for output
