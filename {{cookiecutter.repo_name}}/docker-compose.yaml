@@ -37,4 +37,4 @@ volumes:
         driver: local
 
 networks:
-    sanic
+    sanic:
