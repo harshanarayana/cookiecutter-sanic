@@ -34,7 +34,8 @@ expect_to_arg_map = OrderedDict({
     "Select enable_rate_limiter": "1",
     "Select run_mode:": "1",
     "workers": "4",
-    "Select enable_auto_reload": "1"
+    "Select enable_auto_reload": "1",
+    "Select enable_opentracing": "2",
 })
 
 # Setup Directory path for output
