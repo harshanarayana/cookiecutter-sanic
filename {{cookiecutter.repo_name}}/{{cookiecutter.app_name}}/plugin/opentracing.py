@@ -81,7 +81,7 @@ class SanicOpenTracer(opentracing.Tracer):
     def _before_request_fn(self, request: Request, attributes: List[AnyStr] = None):
         operation_name = request.endpoint
         headers = {}
-        for k, v in request.headers:
+        for k, v in request.headers.items():
             headers[k.lower()] = v
 
         try:
@@ -92,8 +92,8 @@ class SanicOpenTracer(opentracing.Tracer):
         except (opentracing.InvalidCarrierException,
                 opentracing.SpanContextCorruptedException):
             scope = self.tracer.start_active_span(operation_name)
-
-        self._current_scopes[request] = scope
+        req_scope = tuple(sorted(request.items()))
+        self._current_scopes[req_scope] = scope
 
         span = scope.span
         span.set_tag(tags.COMPONENT, 'Sanic')
@@ -110,7 +110,8 @@ class SanicOpenTracer(opentracing.Tracer):
         self._call_start_span_cb(span, request)
 
     def _after_request_fn(self, request: Request, response: HTTPResponse, error: Exception = None):
-        scope = self._current_scopes.pop(request, None)
+        req_scope = tuple(sorted(request.items()))
+        scope = self._current_scopes.pop(req_scope, None)
         if scope is None:
             return
         if response is not None:
