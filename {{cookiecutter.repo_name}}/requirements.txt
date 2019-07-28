@@ -3,3 +3,13 @@ sanic
 sanic-openapi
 {%- endif %}
 json-logging-py
+{% if cookiecutter.enable_orm == 'true' -%}
+gino
+{%- endif %}
+{% if cookiecutter.enable_rate_limiter == 'true' -%}
+sanic_limiter
+{%- endif %}
+{% if cookiecutter.enable_opentracing == 'True' -%}
+opentracing
+jaeger-client
+{%- endif -%}
