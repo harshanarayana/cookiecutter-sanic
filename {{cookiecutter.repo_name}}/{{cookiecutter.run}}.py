@@ -18,7 +18,7 @@ if __name__ == "__main__":
     app.run(
         host="{{cookiecutter.sanic_host}}",
         port="{{cookiecutter.sanic_port}}",
-        {% if cookiecutter.run_mode == 'sanic_workers' -%}worker={{cookiecutter.worker}},{%- endif %}
+        {% if cookiecutter.run_mode == 'sanic_workers' -%}worker={{cookiecutter.workers}},{%- endif %}
         {% if cookiecutter.run_mode == 'sanic_dev_mode' -%}debug=True,{%- endif %}
         {% if cookiecutter.enable_auto_reload == 'y' and cookiecutter.run_mode == 'sanic_dev_mode' -%}auto_reload=True{%- endif %}
     )
