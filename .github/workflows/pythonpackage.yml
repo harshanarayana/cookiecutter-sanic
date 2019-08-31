@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: [3.6, 3.7, 3.8]
+        python-version: [3.6, 3.7]
         os: [ubuntu-latest, windows-latest, macOS-latest]
 
     steps:
@@ -20,7 +20,8 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        pip install --upgrade pytest
         pip install -r requirements-dev.txt 
     - name: Test with pytest
       run: |
-        cookiecutter . -o test
+        cookiecutter . -o test --default-config
