@@ -1,7 +1,8 @@
+#!/usr/bin/env python3
+
 import os
 from shutil import which
 from subprocess import Popen, PIPE
-from sys import version_info
 
 enable_swagger = '{{cookiecutter.enable_swagger}}' == 'y'
 
@@ -11,7 +12,7 @@ def cleanup_requirements_file(file_name, items_to_remove):
         data = fh.read()
     os.remove(file_name)
     data = data.split("\n")
-    data = [d for d in data if not d in items_to_remove]
+    data = [d for d in data if d not in items_to_remove]
     with open(file_name, "w") as fh:
         fh.write("\n".join(data))
 
